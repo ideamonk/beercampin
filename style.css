@@ -6,7 +6,7 @@
 	                               /_/
 	
 */
-	*{padding:0px; margin:0px;}
+	*{padding:0px; margin:0px; border:none;}
 	body{
 		font-size:14px;
 		font-family:helvetica, Arial, verdana, serif;

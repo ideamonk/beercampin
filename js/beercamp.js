@@ -23,7 +23,7 @@ function bottomsUp(data){
 		if (data.results[0]["created_at"] != _lastStamp){
 			_lastStamp = data.results[0]["created_at"];
 			for (i=0, ii=data.results.length; i<ii; i++){
-				_blippies[i].slideUp().fadeOut().html("<p><img class='prof' src='" + data.results[i]["profile_image_url"] + "' />"  + data.results[i]["text"] + "</p>").animate({"padding-left":Math.floor(Math.random()*680+20)}).fadeIn();
+				_blippies[i].slideUp().fadeOut().html("<p><a class='prof' href='http://twitter.com/"+data.results[i]["from_user"]+"'><img class='prof' src='" + data.results[i]["profile_image_url"] + "' /></a>"  + data.results[i]["text"] + "</p>").animate({"padding-left":Math.floor(Math.random()*680+20)}).fadeIn();
 			}
 		}
 	}
