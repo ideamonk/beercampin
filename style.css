@@ -1,0 +1,60 @@
+/*
+	   __                                     __
+	  / /  ___ ___ ___________ ___ _  ___    / /
+	 / _ \/ -_) -_) __/ __/ _ `/  ' \/ _ \  /_/ 
+	/_.__/\__/\__/_/  \__/\_,_/_/_/_/ .__/ (_)  
+	                               /_/
+	
+*/
+	*{padding:0px; margin:0px;}
+	body{
+		font-size:14px;
+		font-family:helvetica, Arial, verdana, serif;
+		background:#eee3b5;
+	}
+	h1{
+		padding-top:5px;
+		text-align:center;
+		color:#011828;
+		font-size:5em;
+		border-bottom:1px dashed #666;
+		letter-spacing:-5px;
+	}
+	#wrapper{
+		margin:0px auto;
+		width:900px;
+		background:#eee3b5 url(images/city.jpg)  top center no-repeat;
+	}
+	#playground{
+		margin:0px auto 0px auto;
+		width:830px;
+		height:550px;
+		display:block;
+	}
+	.blippy{
+		width:168px;
+		height:100px;
+		display:block;
+		background: url(images/blippy2.png)  bottom right no-repeat;
+		display:none;
+	}
+	.blippy p{
+		background: rgba(255,208,78,0.8);
+		border:1px solid #ff9c1c;
+		-webkit-border-radius:5px;
+		-mozilla-border-radius:5px;
+		font-size:0.7em;
+		overflow:auto;
+		padding:3px;
+	}
+	.prof {
+		width:32px;
+		height:32px;
+		float:left;
+		padding:0px 3px 3px 0px;
+	}
+	
+	#hashtag{
+		margin-top:100px;
+		margin-bottom:10px;
+	}
