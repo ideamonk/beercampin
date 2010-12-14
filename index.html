@@ -4,6 +4,7 @@
 		*{padding:0px; margin:0px;}
 		body{
 			font-size:14px;
+			font-family:helvetica, Arial, verdana, serif;
 			background:#eee3b5;
 		}
 		h1{
@@ -11,7 +12,6 @@
 			text-align:center;
 			color:#011828;
 			font-size:5em;
-			font-family:helvetica, Arial, verdana, serif;
 			border-bottom:1px dashed #666;
 			letter-spacing:-5px;
 		}
@@ -24,14 +24,28 @@
 			margin:0px auto 0px auto;
 			width:830px;
 			height:600px;
-			border:1px solid red;
 			display:block;
 		}
 		.blippy{
-			width:128px;
-			height:128px;
+			width:168px;
+			height:100px;
 			display:block;
-			background: url(images/blippy.png) right bottom no-repeat;
+			background: url(images/blippy2.png)  bottom right no-repeat;
+			display:none;
+		}
+		.blippy p{
+			background: rgba(255,208,78,0.8);
+			border:1px solid #ff9c1c;
+			-webkit-border-radius:5px;
+			-mozilla-border-radius:5px;
+			font-size:0.7em;
+			padding:3px;
+		}
+		.prof {
+			width:32px;
+			height:32px;
+			float:left;
+			padding:3px;
 		}
 	</style>
 	<script type='text/javascript' src='js/jquery.js'></script>
@@ -41,8 +55,8 @@
 	function setupBlippies(){
 		for (i=0; i<5; i++){
 			var img = $("<div class='blippy'>&nbsp;</div>");
-			img.css("margin-top", 20-i*30);
-			img.css("padding-left", Math.floor(Math.random()*680)+20);
+			img.css("margin-top", i==0?10:-10);
+			img.css("padding-left", Math.floor(Math.random()*660)+20);
 			_blippies.push(img);
 			$("#playground").append(img);
 		}
@@ -56,18 +70,22 @@
 	}
 	
 	function getBeer(){
-		$.getJSON('http://search.twitter.com/search.json?q=beercamp&rpp=5&page=1', function(data){
-			if (data.results.length>=5){
-				for (i=0; i<5; i++){
-					_blippies[i].html("<p>"+data.results[i]["text"]+"</p>");
-				}
-			}
-		})
+		var twattie = document.createElement("script");
+		twattie.type="text/javascript";
+		twattie.src="http://search.twitter.com/search.json?q=beercamp&rpp=5&page=1&callback=bottomsUp";
+		$("head").append(twattie);
 	}
 	
+	function bottomsUp(data){
+		for (i=0, ii=data.results.length; i<ii; i++){
+			_blippies[i].html("<p><img class='prof' src='" + data.results[i]["profile_image_url"] + "' />"  + data.results[i]["text"] + "</p>");
+		}
+		smackBlippies();
+	}
 	$(document).ready(function(){
 		setupBlippies();
-		setTimeout(smackBlippies,5000);
+		getBeer();
+		setInterval(getBeer,6000);
 	});
 	</script>
 </head>
