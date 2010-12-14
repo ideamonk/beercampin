@@ -31,5 +31,5 @@ function bottomsUp(data){
 $(document).ready(function(){
 	setupBlippies();
 	getBeer();
-	setInterval(getBeer,2000);
+	setInterval(getBeer,5000);
 });
