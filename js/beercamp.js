@@ -14,7 +14,7 @@ function setupBlippies(){
 function getBeer(){
 	var twattie = document.createElement("script");
 	twattie.type="text/javascript";
-	twattie.src="http://search.twitter.com/search.json?q=beercamp&rpp=5&page=1&callback=bottomsUp&punk1=" + Math.floor(Math.random()*10000).toString() + "&punk2=" + Math.floor(Math.random()*10000).toString();
+	twattie.src="http://search.twitter.com/search.json?q=beercampin&rpp=5&page=1&callback=bottomsUp&punk1=" + Math.floor(Math.random()*10000).toString() + "&punk2=" + Math.floor(Math.random()*10000).toString();
 	$("head").append(twattie);
 }
 
