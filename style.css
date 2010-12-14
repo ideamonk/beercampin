@@ -42,7 +42,7 @@
 		background: rgba(255,208,78,0.8);
 		border:1px solid #ff9c1c;
 		-webkit-border-radius:5px;
-		-mozilla-border-radius:5px;
+		-moz-border-radius:5px;
 		font-size:0.7em;
 		overflow:auto;
 		padding:3px;
