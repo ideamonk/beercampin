@@ -18,19 +18,64 @@
 		#wrapper{
 			margin:0px auto;
 			width:900px;
-			background:#eee3b5 url(images/city.jpg) center top no-repeat;
+			background:#eee3b5 url(images/city.jpg)  top center no-repeat;
 		}
-		#blippy{
-			position:relative;
-			padding-left:175px;
-			padding-top:180px;
+		#playground{
+			margin:0px auto 0px auto;
+			width:830px;
+			height:600px;
+			border:1px solid red;
+			display:block;
+		}
+		.blippy{
+			width:128px;
+			height:128px;
+			display:block;
+			background: url(images/blippy.png) right bottom no-repeat;
 		}
 	</style>
+	<script type='text/javascript' src='js/jquery.js'></script>
+	<script type='text/javascript' >
+	var _blippies = [];
+	
+	function setupBlippies(){
+		for (i=0; i<5; i++){
+			var img = $("<div class='blippy'>&nbsp;</div>");
+			img.css("margin-top", 20-i*30);
+			img.css("padding-left", Math.floor(Math.random()*680)+20);
+			_blippies.push(img);
+			$("#playground").append(img);
+		}
+	}
+	
+	function smackBlippies(){
+		for (i=0; i<5; i++){
+			_blippies[i].slideUp();
+			_blippies[i].animate({"padding-left":Math.floor(Math.random()*680+20)}).fadeIn();
+		}
+	}
+	
+	function getBeer(){
+		$.getJSON('http://search.twitter.com/search.json?q=beercamp&rpp=5&page=1', function(data){
+			if (data.results.length>=5){
+				for (i=0; i<5; i++){
+					_blippies[i].html("<p>"+data.results[i]["text"]+"</p>");
+				}
+			}
+		})
+	}
+	
+	$(document).ready(function(){
+		setupBlippies();
+		setTimeout(smackBlippies,5000);
+	});
+	</script>
 </head>
 <body>
 	<div id="wrapper">
 		<h1>BEERCAMP 18/19 DEC 2010</h1>
-		<img id="blippy" src="images/blippy.png" />
+		<div id="playground">
+		</div>
 	</div>
 </body>
 </html>
