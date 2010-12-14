@@ -24,6 +24,7 @@
 		margin:0px auto;
 		width:900px;
 		background:#eee3b5 url(images/city.jpg)  top center no-repeat;
+		text-align:center;
 	}
 	#playground{
 		margin:0px auto 0px auto;
@@ -39,6 +40,7 @@
 		display:none;
 	}
 	.blippy p{
+		text-align:left;
 		background: rgba(255,208,78,0.8);
 		border:1px solid #ff9c1c;
 		-webkit-border-radius:5px;
