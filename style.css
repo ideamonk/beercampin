@@ -57,6 +57,12 @@
 	}
 	
 	#hashtag{
-		margin-top:100px;
+		margin-top:40px;
 		margin-bottom:10px;
+		border-bottom:none;
+	}
+	.desc{
+		padding:30px 20px;
+		text-align:center;
+		font-size:0.9em;
 	}
